@@ -115,3 +115,5 @@ a{color:var(--text);text-decoration:none}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 .footer{padding:36px 0;border-top:1px solid var(--border);color:var(--muted)}
+
+
