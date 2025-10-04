@@ -1,0 +1,7 @@
+
+const root=document.documentElement;
+const saved=localStorage.getItem('theme'); if(saved==='light') root.classList.add('light');
+document.querySelector('.theme-toggle')?.addEventListener('click',()=>{root.classList.toggle('light');localStorage.setItem('theme',root.classList.contains('light')?'light':'dark')});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{if(a.getAttribute('href')==='#')return;e.preventDefault();const el=document.querySelector(a.getAttribute('href')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});});
+function setupSlider(id){const r=document.getElementById(id); if(!r) return; const t=r.querySelector('.slides'); const s=[...r.querySelectorAll('.slide')]; const d=r.querySelector('.dots'); const p=r.querySelector('.prev'); const n=r.querySelector('.next'); let i=0; d.innerHTML=s.map((_,k)=>`<span class="dot${k===0?' active':''}"></span>`).join(''); const dots=[...d.querySelectorAll('.dot')]; function render(){t.style.transform=`translateX(${-i*100}%)`; dots.forEach((x,k)=>x.classList.toggle('active',k===i));} function go(k){i=(k+s.length)%s.length; render();} p.addEventListener('click',()=>go(i-1)); n.addEventListener('click',()=>go(i+1)); dots.forEach((x,k)=>x.addEventListener('click',()=>go(k))); render();}
+setupSlider('projects'); setupSlider('certs'); document.getElementById('year').textContent=new Date().getFullYear();
