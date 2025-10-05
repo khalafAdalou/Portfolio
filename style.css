@@ -64,27 +64,32 @@ a{color:var(--text);text-decoration:none}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 .chip{padding:6px 10px;border-radius:10px;background:var(--card-soft);border:1px solid var(--border);color:var(--muted);font-size:14px}
 
-/* ===== Slider (Fixed) ===== */
-.slider{position:relative;overflow:visible}
-.slider-viewport{overflow:hidden;border-radius:16px}
-.slides{
-  display:flex;gap:0;
-  transition:transform .45s ease;
-  will-change:transform;backface-visibility:hidden
+/* ===== Slider (clean) ===== */
+/* الغلاف يسمح بخروج الأزرار */
+.slider{ position:relative; overflow:visible; }
+
+/* الكارد هو الذي يقص المحتوى داخل حدوده المستديرة */
+.slider-card{ overflow:hidden; border-radius:16px; }
+
+/* رؤية عنصر واحد فقط ومنع ظهور جزء من التالي */
+.slider-viewport{ overflow:hidden; }
+.slides{ display:flex; gap:0; transition:transform .45s ease; will-change:transform; backface-visibility:hidden; }
+.slide{ flex:0 0 100%; min-width:100%; max-width:100%; padding:0; }
+
+/* الأسهم على الغلاف (خارج الكارد) */
+.slider .slider-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:999px; display:grid; place-items:center;
+  border:1px solid var(--border); background:var(--arrow-bg); color:var(--arrow-icon);
+  z-index:6; box-shadow:var(--shadow);
 }
-.slide{
-  flex:0 0 100%;min-width:100%;max-width:100%;
-  padding:0; /* منع أي حواف تسبب ظهور جزء من التالي */
+.slider .slider-btn.prev{ left:-22px; }
+.slider .slider-btn.next{ right:-22px; }
+@media (max-width:900px){
+  .slider .slider-btn.prev{ left:10px; }
+  .slider .slider-btn.next{ right:10px; }
 }
-/* Nav buttons */
-.slider-btn{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:44px;height:44px;border-radius:999px;display:grid;place-items:center;
-  border:1px solid var(--border);background:var(--arrow-bg);color:var(--arrow-icon);
-  z-index:6;box-shadow:var(--shadow)
-}
-.slider-btn.prev{left:-22px}
-.slider-btn.next{right:-22px}
+
 /* Dots */
 .dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
 .dot{width:8px;height:8px;border-radius:999px;background:#2c3e66}
@@ -99,7 +104,7 @@ a{color:var(--text);text-decoration:none}
   .project-img{height:240px}
 }
 
-/* Timeline (لو حبيت تستخدم لاحقًا) */
+/* Timeline (optional) */
 .timeline{position:relative;margin-left:10px}
 .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:3px;background:linear-gradient(var(--accent),transparent)}
 .ti{position:relative;margin-left:40px;margin-bottom:20px}
@@ -117,81 +122,7 @@ a{color:var(--text);text-decoration:none}
 .footer{padding:36px 0;border-top:1px solid var(--border);color:var(--muted)}
 
 /* Education card padding + tidy typography */
-.edu-card{
-  padding: 24px 28px;            /* المسافة الداخلية */
-}
-
-.edu-card h3{
-  margin: 0 0 12px;              /* مسافة بين العنوان والتاريخ */
-}
-
-.edu-card p{
-  margin: 0;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-@media (max-width: 900px){
-  .edu-card{ padding: 18px 20px; }
-}
-
-/* ==== Fix arrows overlap (account for card padding) ==== */
-
-/* قيمة افتراضية لبادينج الكارد */
-.slider{ --pad-x: 24px; }
-
-/* الكارد الخاص بالشهادات له padding مختلف */
-.cert-card.slider{ --pad-x: 26px; }
-
-/* طلّع الأسهم خارج الكارد بالكامل */
-.slider .slider-btn.prev{
-  left: calc(-1 * var(--pad-x) - 22px) !important;
-}
-.slider .slider-btn.next{
-  right: calc(-1 * var(--pad-x) - 22px) !important;
-}
-
-/* على الشاشات الصغيرة رجّعها للداخل عشان ما تطلع برا الشاشة */
-@media (max-width: 900px){
-  .slider .slider-btn.prev{ left: 10px !important; }
-  .slider .slider-btn.next{ right: 10px !important; }
-}
-
-/* الغلاف يسمح بخروج الأزرار */
-.slider{
-  position: relative;
-  overflow: visible;
-}
-
-/* الكارد يقصّ المحتوى داخل حدوده المستديرة */
-.slider-card{
-  overflow: hidden;        /* <-- هذا اللي يخفي أي شيء خارج البوردر */
-  border-radius: 16px;
-}
-
-/* ما نحتاج نصف قطر إضافي هنا، يكفي الكارد */
-.slider-viewport{
-  overflow: hidden;
-  border-radius: 0;
-}
-
-/* أسهم خارج الكارد قليلاً بدون قصّ (للغلاف) */
-.slider .slider-btn{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:44px;height:44px;border-radius:999px;display:grid;place-items:center;
-  border:1px solid var(--border);background:var(--arrow-bg);color:var(--arrow-icon);
-  z-index:6;box-shadow:var(--shadow)
-}
-.slider .slider-btn.prev{ left:-22px; }
-.slider .slider-btn.next{ right:-22px; }
-
-@media (max-width: 900px){
-  .slider .slider-btn.prev{ left:10px; }
-  .slider .slider-btn.next{ right:10px; }
-}
-
-/* السلايد يعرض عنصر واحد فقط */
-.slides{ display:flex; gap:0; transition:transform .45s ease; will-change:transform; }
-.slide{ flex:0 0 100%; min-width:100%; max-width:100%; padding:0; }
-
-
+.edu-card{ padding:24px 28px; }
+.edu-card h3{ margin:0 0 12px; }
+.edu-card p{ margin:0; color:var(--muted); font-weight:600; }
+@media (max-width:900px){ .edu-card{ padding:18px 20px; } }
