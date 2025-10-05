@@ -135,3 +135,27 @@ a{color:var(--text);text-decoration:none}
   .edu-card{ padding: 18px 20px; }
 }
 
+/* ==== Fix arrows overlap (account for card padding) ==== */
+
+/* قيمة افتراضية لبادينج الكارد */
+.slider{ --pad-x: 24px; }
+
+/* الكارد الخاص بالشهادات له padding مختلف */
+.cert-card.slider{ --pad-x: 26px; }
+
+/* طلّع الأسهم خارج الكارد بالكامل */
+.slider .slider-btn.prev{
+  left: calc(-1 * var(--pad-x) - 22px) !important;
+}
+.slider .slider-btn.next{
+  right: calc(-1 * var(--pad-x) - 22px) !important;
+}
+
+/* على الشاشات الصغيرة رجّعها للداخل عشان ما تطلع برا الشاشة */
+@media (max-width: 900px){
+  .slider .slider-btn.prev{ left: 10px !important; }
+  .slider .slider-btn.next{ right: 10px !important; }
+}
+
+
+
