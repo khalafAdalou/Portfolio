@@ -157,5 +157,41 @@ a{color:var(--text);text-decoration:none}
   .slider .slider-btn.next{ right: 10px !important; }
 }
 
+/* الغلاف يسمح بخروج الأزرار */
+.slider{
+  position: relative;
+  overflow: visible;
+}
+
+/* الكارد يقصّ المحتوى داخل حدوده المستديرة */
+.slider-card{
+  overflow: hidden;        /* <-- هذا اللي يخفي أي شيء خارج البوردر */
+  border-radius: 16px;
+}
+
+/* ما نحتاج نصف قطر إضافي هنا، يكفي الكارد */
+.slider-viewport{
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* أسهم خارج الكارد قليلاً بدون قصّ (للغلاف) */
+.slider .slider-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:999px;display:grid;place-items:center;
+  border:1px solid var(--border);background:var(--arrow-bg);color:var(--arrow-icon);
+  z-index:6;box-shadow:var(--shadow)
+}
+.slider .slider-btn.prev{ left:-22px; }
+.slider .slider-btn.next{ right:-22px; }
+
+@media (max-width: 900px){
+  .slider .slider-btn.prev{ left:10px; }
+  .slider .slider-btn.next{ right:10px; }
+}
+
+/* السلايد يعرض عنصر واحد فقط */
+.slides{ display:flex; gap:0; transition:transform .45s ease; will-change:transform; }
+.slide{ flex:0 0 100%; min-width:100%; max-width:100%; padding:0; }
 
 
