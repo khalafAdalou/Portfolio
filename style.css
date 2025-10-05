@@ -116,4 +116,22 @@ a{color:var(--text);text-decoration:none}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 .footer{padding:36px 0;border-top:1px solid var(--border);color:var(--muted)}
 
+/* Education card padding + tidy typography */
+.edu-card{
+  padding: 24px 28px;            /* المسافة الداخلية */
+}
+
+.edu-card h3{
+  margin: 0 0 12px;              /* مسافة بين العنوان والتاريخ */
+}
+
+.edu-card p{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+@media (max-width: 900px){
+  .edu-card{ padding: 18px 20px; }
+}
 
