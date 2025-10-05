@@ -113,8 +113,20 @@ a{color:var(--text);text-decoration:none}
 
 /* Certificates */
 .cert-card{padding:26px}
-#certs .cert-inner{margin:0 56px}
-#certs .soft-card{border:none;background:transparent;box-shadow:none}
+
+/* ✅ هنا التعديل الخاص بالشهادات ليطابق قصّ الـ Projects */
+#certs .slider-card{ overflow:hidden; border-radius:16px; }
+#certs .slider-viewport{ overflow:hidden; }
+#certs .slides{ gap:0; }
+#certs .slide{ flex:0 0 100%; min-width:100%; max-width:100%; padding:0; }
+
+/* بدلنا الـmargin إلى padding لنفس المسافة بدون أي لبس عند الحدود */
+#certs .cert-inner{ padding:0 56px; margin:0; }
+#certs .soft-card{ border:none; background:transparent; box-shadow:none; }
+
+@media (max-width:900px){
+  #certs .cert-inner{ padding:0 20px; }
+}
 
 /* Contact + Footer */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
