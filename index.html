@@ -85,7 +85,62 @@
   <div class="container">
     <h2 class="section-title">Featured Projects</h2>
     <div class="title-underline"></div>
-    <!-- ... المشاريع كما هي بدون تغيير ... -->
+
+    <!-- الغلاف العام للسلايدر -->
+    <div class="slider">
+      <!-- أزرار التنقل (خارج الكارد) -->
+      <button class="slider-btn prev" aria-label="Previous">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="slider-btn next" aria-label="Next">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+      <!-- الكارد الذي يقصّ المحتوى داخل حدوده -->
+      <div class="card project-card slider-card">
+        <div class="slider-viewport">
+          <div class="slides">
+
+            <div class="slide">
+              <div class="project-row">
+                <img class="project-img" src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1600&auto=format&fit=crop" alt="Project">
+                <div>
+                  <h3>Zoofilist — Pet Care Super-app</h3>
+                  <p>Owner &amp; Provider apps (Flutter + GetX), AI chat, messaging, and Firebase.</p>
+                  <div class="chips"><span class="chip">Flutter</span><span class="chip">GetX</span><span class="chip">Firebase</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="project-row">
+                <img class="project-img" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop" alt="Project">
+                <div>
+                  <h3>Retail Wallet — iOS</h3>
+                  <p>Digital wallet with payments, receipts, deep links, and analytics.</p>
+                  <div class="chips"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">MVVM</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="project-row">
+                <img class="project-img" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1600&auto=format&fit=crop" alt="Project">
+                <div>
+                  <h3>Food Delivery — iOS &amp; Flutter</h3>
+                  <p>Menu management, order processing, real-time tracking, and push notifications.</p>
+                  <div class="chips"><span class="chip">Swift</span><span class="chip">Flutter</span><span class="chip">Firebase</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.slides -->
+        </div><!-- /.slider-viewport -->
+      </div><!-- /.slider-card -->
+
+      <!-- نقاط المؤشر -->
+      <div class="dots"></div>
+    </div><!-- /.slider -->
   </div>
 </section>
 
@@ -93,7 +148,32 @@
   <div class="container">
     <h2 class="section-title">Work Experience</h2>
     <div class="title-underline"></div>
-    <!-- ... الخبرات كما هي بدون تغيير ... -->
+    <div class="timeline">
+      <div class="ti">
+        <span class="dot"></span>
+        <div class="box">
+          <h3>Senior Mobile Engineer & Team Lead — Marvel System (Remote, KSA)</h3>
+          <p><em>01/2021 – Present</em></p>
+          <ul>
+            <li>Led a team of developers and ensured timely delivery and code quality.</li>
+            <li>Scaled downloads from 10K to 1.5M; implemented analytics & growth loops.</li>
+            <li>Reduced crash rate and improved performance via profiling and caching.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ti">
+        <span class="dot"></span>
+        <div class="box">
+          <h3>iOS Engineer (Part-time) — Super Code (Remote, Palestine)</h3>
+          <p><em>01/2020 – 12/2020</em></p>
+          <ul>
+            <li>Built beauty-care booking app end-to-end; +40% bookings.</li>
+            <li>Cross-functional collaboration; 95% requirements alignment.</li>
+            <li>Added analytics; +22% user satisfaction.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -113,10 +193,12 @@
     <h2 class="section-title">Certificates</h2>
     <div class="title-underline"></div>
 
+    <!-- غلاف السلايدر (للأسهم) -->
     <div class="slider">
       <button class="slider-btn prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
       <button class="slider-btn next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
 
+      <!-- الكارد هو الذي يقصّ المحتوى -->
       <div class="card cert-card slider-card">
         <div class="slider-viewport">
           <div class="slides">
